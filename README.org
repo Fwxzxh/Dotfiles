@@ -1,0 +1,6 @@
+#+title: My glorious (.dot)files
+
+Welcome to my personal and Updated Dot files
+
+- Nvim Config
+- bspwm Config
