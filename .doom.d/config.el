@@ -72,23 +72,6 @@
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
 (require 'sublimity-scroll)
-(plist-put! +ligatures-extra-symbols
-  ;; org
-  :name          "»"
-  :src_block     "»"
-  :src_block_end "«"
-  :quote         "“"
-  :quote_end     "”"
-  ;; Types
-  :null          "∅"
-  :true          "True"
-  :false         "False"
-  :int           "ℤ"
-  :float         "ℝ"
-  :str           "str"
-  :bool          "bool"
-  :list          "list"
-  :dot           "•")  ;; you could also add your own if you want
 
 
 (set-docsets! 'Haskell-mode "Haskell")
@@ -140,7 +123,6 @@
 (setq ispell-dictionary "espanol")
 
 (setq org-twbs-head-extra "<style>pre { font-size: 16px; background-color: #2E3440; color: #bbb; }</style>")
-
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;

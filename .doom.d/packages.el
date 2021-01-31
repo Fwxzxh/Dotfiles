@@ -17,9 +17,12 @@
 ;;   :recipe (:host github :repo "tecosaur/ox-ansi"))
 (package! ox-twbs)
 (package! org-pandoc-import
-  :recipe (:host github
-           :repo "tecosaur/org-pandoc-import"
+  :recipe (:host github :repo "tecosaur/org-pandoc-import"
            :files ("*.el" "filters" "preprocessors")))
+
+
+;;(package! vterm-toggle)
+
 
 ;; Hooks so haskell and literate haskell major modes trigger LSP setup
 ;; To install a package directly from a remote git repo, you must specify a

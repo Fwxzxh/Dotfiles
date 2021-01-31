@@ -55,7 +55,7 @@ bspc rule -a matplotlib state=floating
 bspc rule -a lotion-binary state=floating
 bspc rule -a gnuplot_qt state=floating border=off  
 bspc rule -a zathura state=tiled
-bspc rule -a emacs state=tiled 
+bspc rule -a emacs state=tiled
 
 #plasma config
 bspc rule -a krunner state=floating border=off layer=above
