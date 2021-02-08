@@ -124,6 +124,9 @@
 
 (setq org-twbs-head-extra "<style>pre { font-size: 16px; background-color: #2E3440; color: #bbb; }</style>")
 
+;; vterm side window
+(set-popup-rule! "*SQL: Oracle*" :size 0.3 :vslot -4 :select t :quit nil :ttl 0)
+
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one
