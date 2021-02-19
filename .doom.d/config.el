@@ -38,7 +38,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-nord)
+(setq doom-theme 'doom-dracula)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -53,29 +53,39 @@
         display-line-numbers-widen t)
 
 ;; fix scroll lag
-(setq redisplay-dont-pause t
-  scroll-margin 1
-  scroll-step 1
-  scroll-conservatively 10000
-  scroll-preserve-screen-position 1)
+(setq scroll-margin 1
+        scroll-step 1
+        scroll-conservatively 10000
+        scroll-preserve-screen-position 1)
 
+;; modeline config
 (setq doom-modeline-modal-icon nil)
 (setq company-minimum-prefix-length 1
       company-idle-delay 0.0) ;; default is 0.2
+(setq all-the-icons-scale-factor 1.2) ;;smalller icons default 1.2
+(setq doom-modeline-icon (display-graphic-p)) ;; display icons
+
+;; add pading on the right side of modeline
+(after! doom-modeline
+  (doom-modeline-def-modeline 'main
+    '(bar matches buffer-info remote-host buffer-position parrot selection-info);; TODO search the name of the evil-icon module
+    '(misc-info minor-modes checker input-method buffer-encoding major-mode process vcs "  "))) ; <-- added padding here
 
 ;; Truncate lines spc-t-t
 (map! :leader
       :desc "Toggle truncate lines"
       "t t" #'toggle-truncate-lines)
 
-(require 'org-bullets)  ; Nicer bullets in org-mode
+;; Nicer bullets in org-mode
+(require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
-(require 'sublimity-scroll)
+;;(require 'sublimity-scroll)
 
 
 (set-docsets! 'Haskell-mode "Haskell")
 
+;;Ranger config
 (ranger-override-dired-mode t)
 (setq ranger-cleanup-eagerly t)
 (setq ranger-cleanup-on-disable t)
@@ -126,6 +136,13 @@
 
 ;; vterm side window
 (set-popup-rule! "*SQL: Oracle*" :size 0.3 :vslot -4 :select t :quit nil :ttl 0)
+
+
+(use-package! tree-sitter
+  :config
+  (require 'tree-sitter-langs)
+  (global-tree-sitter-mode)
+  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;

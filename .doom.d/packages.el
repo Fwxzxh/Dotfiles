@@ -22,7 +22,8 @@
 
 
 ;;(package! vterm-toggle)
-
+(package! tree-sitter)
+(package! tree-sitter-langs)
 
 ;; Hooks so haskell and literate haskell major modes trigger LSP setup
 ;; To install a package directly from a remote git repo, you must specify a
