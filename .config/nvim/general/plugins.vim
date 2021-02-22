@@ -73,4 +73,7 @@ Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
 "LSP tags
 Plug 'liuchengxu/vista.vim'
 
+"Dracula colorscheme
+Plug 'dracula/vim', { 'as': 'dracula' }
+
 call plug#end()

@@ -1,7 +1,7 @@
 " set leader key
 let g:mapleader = "\<Space>"
 
-colorscheme nord 
+colorscheme dracula
 set termguicolors
 
 set nu rnu  	"Set hybrid line numbers
