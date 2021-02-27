@@ -60,11 +60,11 @@ bspc rule -a emacs state=tiled
 #plasma config
 bspc rule -a krunner state=floating border=off layer=above
 bspc rule -a yakuake state=floating border=off layer=above
-bspc rule -a plasmashell state=floating border=off layer=normal
+bspc rule -a plasmashell state=floating border=off layer=normal manage=off
 bspc rule -a Plasma state=floating manage=off layer=above
 bspc rule -a latte-dock state=floating border=off layer=normal
 bspc rule -a lattedock state=floating border=off
-Rspc rule -a plasmashell state=floating manage=off
+#Rspc rule -a plasmashell state=floating manage=off
 
 #scrips
 #make all descktop ^8 all floating
