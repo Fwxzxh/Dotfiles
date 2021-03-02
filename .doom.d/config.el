@@ -137,12 +137,15 @@
 ;; vterm side window
 (set-popup-rule! "*SQL: Oracle*" :size 0.3 :vslot -4 :select t :quit nil :ttl 0)
 
-
+;; tree sitter config
 (use-package! tree-sitter
   :config
   (require 'tree-sitter-langs)
   (global-tree-sitter-mode)
   (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
+
+;; R A I N B O W S everywere!
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
