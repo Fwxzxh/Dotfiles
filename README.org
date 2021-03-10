@@ -23,4 +23,5 @@ Currently use [[https://yadm.io/][yadm]] to manage my dotfiles.
 * Todo list:
 1. Add Awewsomewm config (not ready).
 2. Create a bootstrap script to install all my configurations in all my machines painlessly..
-3. Stop being a lazy piece of shit.
+3. Search a proper way to manage my walpapers and other things.
+4. Stop being a lazy piece of shit.
