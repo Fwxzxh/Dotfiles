@@ -155,6 +155,7 @@
 
 ;;eaf madness
 ;;++++++++++++++++++++++++++++++++++++++++++++++++++
+;;++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ;(add-to-list 'load-path "~/.emacs.d/site-lisp/emacs-application-framework/")
 (add-load-path! "~/.emacs.d/site-lisp/emacs-application-framework/")

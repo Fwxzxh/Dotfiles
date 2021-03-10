@@ -1,6 +1,22 @@
 #+title: My glorious (.dot)files
 
-Welcome to my personal and Updated Dot files
 
-- Nvim Config
-- bspwm Config
+Welcome to my personal and /Updated/ Dot files and scripts i use
+
+* Dotfiles
+Some configuration files here include:
+
+- neovim (tui editor)
+- doom emacs (gui editor)
+- bspwm + KDE Plasma (the best of both worlds)
+- more to come...
+
+* Scripts
+- Keys.sh (handy dandy script to map the useless CAPSLK key to ESC/CTRL)
+
+I use [[https://yadm.io/][yadm]] to manage my dotfiles.
+
+* TODO
+1. Add Awewsomewm config (not ready).
+2. Create a bootstrap script to install all my configurations in all my machines painlessly..
+3. Stop being a lazy piece of shit.
