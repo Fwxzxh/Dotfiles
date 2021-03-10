@@ -130,12 +130,14 @@
 
 (use-package! org-pandoc-import :after org)
 
+;;bc i suck at my native languaje
 (setq ispell-dictionary "espanol")
 
 (setq org-twbs-head-extra "<style>pre { font-size: 16px; background-color: #2E3440; color: #bbb; }</style>")
 
 ;; vterm side window
 (set-popup-rule! "*SQL: Oracle*" :size 0.3 :vslot -4 :select t :quit nil :ttl 0)
+
 
 ;; tree sitter config
 (use-package! tree-sitter
@@ -146,6 +148,68 @@
 
 ;; R A I N B O W S everywere!
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+
+
+;;Better emacs defaut window movement TODO change wit hjkl
+(windmove-default-keybindings)
+
+;;eaf madness
+;;++++++++++++++++++++++++++++++++++++++++++++++++++
+
+;(add-to-list 'load-path "~/.emacs.d/site-lisp/emacs-application-framework/")
+(add-load-path! "~/.emacs.d/site-lisp/emacs-application-framework/")
+(require 'eaf)
+
+
+(use-package eaf
+  :load-path "~/.emacs.d/site-lisp/emacs-application-framework/" ; Set to "/usr/share/emacs/site-lisp/eaf" if installed from AUR
+  ;:load-path "/usr/share/emacs/site-lisp/eaf" ; Set to "/usr/share/emacs/site-lisp/eaf" if installed from AUR
+  :init
+  (use-package epc :defer t :ensure t)
+  (use-package ctable :defer t :ensure t)
+  (use-package deferred :defer t :ensure t)
+  (use-package s :defer t :ensure t)
+  :custom
+  (eaf-browser-continue-where-left-off t)
+  :commands
+  (eaf-open-browser eaf-open find-file) ;; better eaf-open
+  :config
+  (eaf-setq eaf-browser-enable-adblocker "true")
+  (eaf-bind-key scroll_up "C-n" eaf-pdf-viewer-keybinding)
+  (eaf-bind-key scroll_down "C-p" eaf-pdf-viewer-keybinding)
+  (eaf-bind-key take_photo "p" eaf-camera-keybinding)
+  (eaf-bind-key nil "M-q" eaf-browser-keybinding)) ;; unbind, see more in the Wiki
+
+
+(eaf-setq eaf-browser-dark-mode "false")
+(setq eaf-browse-blank-page-url "google.com")
+(require 'eaf-org)
+;;(eaf-setq eaf-terminal-dark-mode "false")
+
+;; Make eaf the default browser
+(setq browse-url-browser-function 'eaf-open-browser)
+(defalias 'browse-web #'eaf-open-browser)
+
+;; oef pdf madness
+(defun eaf-org-open-file (file &optional link)
+  "An wrapper function on `eaf-open'."
+  (eaf-open file))
+;; use `emacs-application-framework' to open PDF file: link
+(add-to-list 'org-file-apps '("\\.pdf\\'" . eaf-org-open-file))
+
+(require 'eaf-evil)
+(define-key key-translation-map (kbd "SPC")
+    (lambda (prompt)
+      (if (derived-mode-p 'eaf-mode)
+          (pcase eaf--buffer-app-name
+            ("browser" (if  (string= (eaf-call-sync "call_function" eaf--buffer-id "is_focus") "True")
+                           (kbd "SPC")
+                         (kbd eaf-evil-leader-key)))
+            ("pdf-viewer" (kbd eaf-evil-leader-key))
+            ("image-viewer" (kbd eaf-evil-leader-key))
+            (_  (kbd "SPC")))
+        (kbd "SPC"))))
+
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;

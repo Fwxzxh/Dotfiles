@@ -22,8 +22,29 @@
 
 
 ;;(package! vterm-toggle)
+
+;; tree-sitter chad higlighting
 (package! tree-sitter)
 (package! tree-sitter-langs)
+
+;; eaf dependencies
+(package! ctable)
+(package! deferred)
+(package! epc)
+(package! s)
+
+
+;; May be useful to install eaf within emacs
+;; (when (package! eaf :recipe (:host github
+;;                              :repo "manateelazycat/emacs-application-framework"
+;;                              :files ("*.el" "*.py" "app" "core")
+;;                              :build (:not compile)))
+
+;;   (package! ctable :recipe (:host github :repo "kiwanami/emacs-ctable"))
+;;   (package! deferred :recipe (:host github :repo "kiwanami/emacs-deferred"))
+;;   (package! epc :recipe (:host github :repo "kiwanami/emacs-epc")))
+
+
 
 ;; Hooks so haskell and literate haskell major modes trigger LSP setup
 ;; To install a package directly from a remote git repo, you must specify a
