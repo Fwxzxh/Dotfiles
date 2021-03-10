@@ -1,7 +1,10 @@
 #+title: My glorious (.dot)files
 
-
 Welcome to my personal and /Updated/ Dot files
+
+#+begin_quote
+When you live in a command line, configurations are a deeply personal thing. They are often crafted over years of experience, battles lost, lessons learned, advice followed, and ingenuity rewarded. When you are away from your own configurations, you are an orphaned refugee in unfamiliar and hostile surroundings. You feel clumsy and out of sorts. You are filled with a sense of longing to be back in a place you know. A place you built. A place where all the short-cuts have been worn bare by your own travels. A place you proudly call… $HOME.
+#+end_quote
 
 * Dotfiles
 Some configuration files here include:
@@ -23,5 +26,5 @@ Currently use [[https://yadm.io/][yadm]] to manage my dotfiles.
 * Todo list:
 1. Add Awewsomewm config (not ready).
 2. Create a bootstrap script to install all my configurations in all my machines painlessly..
-3. Search a proper way to manage my walpapers and other things.
+3. Search for a proper way to manage my walpapers and other things.
 4. Stop being a lazy piece of shit.
