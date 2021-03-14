@@ -9,6 +9,7 @@
 (setq user-full-name "J.D Castro"
       user-mail-address "jdemeca01@gmail.com")
 
+;; waifus everywere
 (setq fancy-splash-image "~/Pictures/Image-1-fix.png")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
@@ -161,7 +162,6 @@
 (add-load-path! "~/.emacs.d/site-lisp/emacs-application-framework/")
 (require 'eaf)
 
-
 (use-package eaf
   :load-path "~/.emacs.d/site-lisp/emacs-application-framework/" ; Set to "/usr/share/emacs/site-lisp/eaf" if installed from AUR
   ;:load-path "/usr/share/emacs/site-lisp/eaf" ; Set to "/usr/share/emacs/site-lisp/eaf" if installed from AUR
@@ -182,6 +182,7 @@
   (eaf-bind-key nil "M-q" eaf-browser-keybinding)) ;; unbind, see more in the Wiki
 
 
+
 (eaf-setq eaf-browser-dark-mode "false")
 (setq eaf-browse-blank-page-url "google.com")
 (require 'eaf-org)
@@ -198,6 +199,8 @@
 ;; use `emacs-application-framework' to open PDF file: link
 (add-to-list 'org-file-apps '("\\.pdf\\'" . eaf-org-open-file))
 
+
+;; make it evil!
 (require 'eaf-evil)
 (define-key key-translation-map (kbd "SPC")
     (lambda (prompt)
@@ -210,6 +213,15 @@
             ("image-viewer" (kbd eaf-evil-leader-key))
             (_  (kbd "SPC")))
         (kbd "SPC"))))
+
+
+;; pretty indent guides
+(setq highlight-indent-guides-method 'bitmap)
+(setq highlight-indent-guides-auto-odd-face-perc 23)
+(setq highlight-indent-guides-auto-even-face-perc 23)
+(setq highlight-indent-guides-auto-character-face-perc 23)
+(setq highlight-indent-guides-responsive 'top)
+(setq highlight-indent-guides-delay 0)
 
 
 ;; Here are some additional functions/macros that could help you configure Doom:
