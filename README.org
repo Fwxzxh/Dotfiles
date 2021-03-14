@@ -15,7 +15,8 @@ Some configuration files here include:
 - more to come...
 
 * Scripts
-- Keys.sh (handy dandy script to map the useless CAPSLK key to ESC/CTRL)
+- Keys.sh: Handy dandy script to map the useless CAPSLK key to ESC/CTRL
+- clean.sh: Seasonal $HOME cleaning just a keystroke away (Just 4 Arch users!)
 
 * Dotfile Manager
 
