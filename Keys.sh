@@ -8,7 +8,7 @@ xset r rate 200 25
 # Map the caps lock key to control...
 setxkbmap -option ctrl:nocaps
 
-# But when it is pressed only once, treat it as escape 
+# But when it is pressed only once, treat it as escape
 xcape -e 'Control_L=Escape'
 
 # Map simultaneous press of both shifts to capslock
