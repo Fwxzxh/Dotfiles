@@ -28,10 +28,10 @@
 (package! tree-sitter-langs)
 
 ;; eaf dependencies
-(package! ctable)
-(package! deferred)
-(package! epc)
-(package! s)
+;;(package! ctable)
+;;(package! deferred)
+;;(package! epc)
+;;(package! s)
 
 
 ;; May be useful to install eaf within emacs

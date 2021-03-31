@@ -25,8 +25,8 @@
 ;; (setq doom-font (font-spec :family "monospace" :size 12 :weight 'semi-light)
 ;;       doom-variable-pitch-font (font-spec :family "sans" :size 13))
 
-(setq doom-font (font-spec :family "Iosevka" :size 17)
-      doom-variable-pitch-font (font-spec :family "SauceCodePro Nerd Font Mono" :size 16)
+(setq doom-font (font-spec :family "Iosevka Term" :size 17)
+      doom-variable-pitch-font (font-spec :family "Iosevka" :size 17)
       doom-big-font (font-spec :family "Fira Code" :size 25))
 
 (after! doom-themes
@@ -96,11 +96,11 @@
 
 
 ;; Elpy config
-(use-package elpy
-  :ensure t
-  :init
-  (elpy-enable)
-  )
+;;(use-package elpy
+;;  :ensure t
+;;  :init
+;;  (elpy-enable)
+;;  )
 (setq python-shell-interpreter "ipython"
       python-shell-interpreter-args "-i --simple-prompt")
 
