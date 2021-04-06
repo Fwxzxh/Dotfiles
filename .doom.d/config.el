@@ -25,9 +25,12 @@
 ;; (setq doom-font (font-spec :family "monospace" :size 12 :weight 'semi-light)
 ;;       doom-variable-pitch-font (font-spec :family "sans" :size 13))
 
-(setq doom-font (font-spec :family "Iosevka Term" :size 17)
-      doom-variable-pitch-font (font-spec :family "Iosevka" :size 17)
+
+;;Default doom-unicode-font symbola
+(setq doom-font (font-spec :family "Iosevka" :size 18)
+      doom-variable-pitch-font (font-spec :family "Iosevka")
       doom-big-font (font-spec :family "Fira Code" :size 25))
+
 
 (after! doom-themes
   (setq doom-themes-enable-bold t
@@ -77,12 +80,19 @@
       :desc "Toggle truncate lines"
       "t t" #'toggle-truncate-lines)
 
+;; neotree toggle
+(map! :leader
+      :desc "Toggle neotree"
+      "t e" #'neotree-toggle)
+
+;; make him prettier
+(setq neo-theme (if (display-graphic-p) 'icons 'arrow))
+
 ;; Nicer bullets in org-mode
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
 ;;(require 'sublimity-scroll)
-
 
 (set-docsets! 'Haskell-mode "Haskell")
 
@@ -180,9 +190,9 @@
 ;;  (eaf-bind-key scroll_down "C-p" eaf-pdf-viewer-keybinding)
 ;;  (eaf-bind-key take_photo "p" eaf-camera-keybinding)
 ;;  (eaf-bind-key nil "M-q" eaf-browser-keybinding)) ;; unbind, see more in the Wiki
-;;
-;;
-;;
+
+
+
 ;;(eaf-setq eaf-browser-dark-mode "false")
 ;;(setq eaf-browse-blank-page-url "google.com")
 ;;(require 'eaf-org)
@@ -225,7 +235,6 @@
   :references #'anaconda-mode-find-references
   :documentation #'anaconda-mode-show-doc)
 
-
 ;; pretty indent guides
 (setq highlight-indent-guides-method 'bitmap)
 (setq highlight-indent-guides-auto-odd-face-perc 23)
@@ -237,7 +246,11 @@
 ;; line numbers gotta go fast
 (format-mode-line "%l")
 
+;; YOU SHALL NOT PASS COLUMN 100!!
+(setq-default fill-column 100)
 
+;; Iterate through camelCase words
+(global-subword-mode 1)
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
