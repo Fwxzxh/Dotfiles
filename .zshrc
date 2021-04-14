@@ -124,6 +124,8 @@ source $ZSH/oh-my-zsh.sh
 # Source things
 source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+
+# https://unix.stackexchange.com/questions/433273/changing-cursor-style-based-on-mode-in-both-zsh-and-vim
 # Change cursor shape for different vi modes.
 function zle-keymap-select {
   if [[ ${KEYMAP} == vicmd ]] ||

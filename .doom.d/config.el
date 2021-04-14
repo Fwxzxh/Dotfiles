@@ -10,7 +10,7 @@
       user-mail-address "jdemeca01@gmail.com")
 
 ;; waifus everywere
-(setq fancy-splash-image "~/Pictures/Image-1-fix.png")
+(setq fancy-splash-image "~/Pictures/Image-1-25.png")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
@@ -49,18 +49,24 @@
 (setq org-directory "~/org/")
 (setq org-roam-directory "~/org/Files/Roam/")
 
+;; cleaner dashboard
+(remove-hook '+doom-dashboard-functions #'doom-dashboard-widget-shortmenu)
+;;(add-hook! '+doom-dashboard-mode-hook (hide-mode-line-mode 1) (hl-line-mode -1))
+(setq-hook! '+doom-dashboard-mode-hook evil-normal-state-cursor (list nil))
+
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type 'relative
-        display-line-numbers-current-absolute t
-        display-line-numbers-width 3
-        display-line-numbers-widen t)
+      display-line-numbers-current-absolute t
+      display-line-numbers-width 3
+      display-line-numbers-widen t)
+
 
 ;; fix scroll lag
 (setq scroll-margin 1
-        scroll-step 1
-        scroll-conservatively 10000
-        scroll-preserve-screen-position 1)
+      scroll-step 1
+      scroll-conservatively 10000
+      scroll-preserve-screen-position 1)
 
 ;; modeline config
 (setq doom-modeline-modal-icon nil)
@@ -104,22 +110,9 @@
 (setq ranger-dont-show-binary t)
 (setq ranger-show-literal t)
 
-
-;; Elpy config
-;;(use-package elpy
-;;  :ensure t
-;;  :init
-;;  (elpy-enable)
-;;  )
 (setq python-shell-interpreter "ipython"
       python-shell-interpreter-args "-i --simple-prompt")
 
-;;(setq elpy-rpc-virtualenv-path "~/Environments/emacs_main/")
-;;(setq elpy-rpc-python-command "python3")
-;;(setq python-shell-interpreter "~/Environments/emacs_main/bin/python3") ;; This is what `C-c C-c` will use with virtualenv
-;;(setq python-shell-interpreter "")
-
-;;(use-package! ox-ansi :after org)
 
 (setq org-publish-project-alist
       '(("org-notes"
@@ -130,12 +123,12 @@
          ;;:with-sub-superscript nil
          )
         ("org-static"
-        :base-directory "~/org/Files/"
-        :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
-        :publishing-directory "~/org/Publ/"
-        :recursive t
-        :publishing-function org-publish-attachment
-        )
+         :base-directory "~/org/Files/"
+         :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
+         :publishing-directory "~/org/Publ/"
+         :recursive t
+         :publishing-function org-publish-attachment
+         )
         ("org" :components ("org-notes" "org-static"))
         ))
 
@@ -160,73 +153,8 @@
 ;; R A I N B O W S everywere!
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
-
-;;Better emacs defaut window movement TODO change wit hjkl
-;(windmove-default-keybindings)
-
-;;eaf madness
-;;++++++++++++++++++++++++++++++++++++++++++++++++++
-;;++++++++++++++++++++++++++++++++++++++++++++++++++
-
-;(add-to-list 'load-path "~/.emacs.d/site-lisp/emacs-application-framework/")
-;;(add-load-path! "~/.emacs.d/site-lisp/emacs-application-framework/")
-;;(require 'eaf)
-;;
-;;(use-package eaf
-;;  :load-path "~/.emacs.d/site-lisp/emacs-application-framework/" ; Set to "/usr/share/emacs/site-lisp/eaf" if installed from AUR
-;;  ;:load-path "/usr/share/emacs/site-lisp/eaf" ; Set to "/usr/share/emacs/site-lisp/eaf" if installed from AUR
-;;  :init
-;;  (use-package epc :defer t :ensure t)
-;;  (use-package ctable :defer t :ensure t)
-;;  (use-package deferred :defer t :ensure t)
-;;  (use-package s :defer t :ensure t)
-;;  :custom
-;;  (eaf-browser-continue-where-left-off t)
-;;  :commands
-;;  (eaf-open-browser eaf-open find-file) ;; better eaf-open
-;;  :config
-;;  (eaf-setq eaf-browser-enable-adblocker "true")
-;;  (eaf-bind-key scroll_up "C-n" eaf-pdf-viewer-keybinding)
-;;  (eaf-bind-key scroll_down "C-p" eaf-pdf-viewer-keybinding)
-;;  (eaf-bind-key take_photo "p" eaf-camera-keybinding)
-;;  (eaf-bind-key nil "M-q" eaf-browser-keybinding)) ;; unbind, see more in the Wiki
-
-
-
-;;(eaf-setq eaf-browser-dark-mode "false")
-;;(setq eaf-browse-blank-page-url "google.com")
-;;(require 'eaf-org)
-;;;;(eaf-setq eaf-terminal-dark-mode "false")
-;;
-;;;; Make eaf the default browser
-;;(setq browse-url-browser-function 'eaf-open-browser)
-;;(defalias 'browse-web #'eaf-open-browser)
-;;
-;;;; oef pdf madness
-;;(defun eaf-org-open-file (file &optional link)
-;;  "An wrapper function on `eaf-open'."
-;;  (eaf-open file))
-;;;; use `emacs-application-framework' to open PDF file: link
-;;(add-to-list 'org-file-apps '("\\.pdf\\'" . eaf-org-open-file))
-
-
-;; make it evil!
-;;(require 'eaf-evil)
-;;(define-key key-translation-map (kbd "SPC")
-;;    (lambda (prompt)
-;;      (if (derived-mode-p 'eaf-mode)
-;;          (pcase eaf--buffer-app-name
-;;            ("browser" (if  (string= (eaf-call-sync "call_function" eaf--buffer-id "is_focus") "True")
-;;                           (kbd "SPC")
-;;                         (kbd eaf-evil-leader-key)))
-;;            ("pdf-viewer" (kbd eaf-evil-leader-key))
-;;            ("image-viewer" (kbd eaf-evil-leader-key))
-;;            (_  (kbd "SPC")))
-;;        (kbd "SPC"))))
-
-;; definitons in eww
+;; languaje definitons in eww
 (setq +lookup-open-url-fn #'eww)
-;;(setq +lookup-open-url-fn #'+lookup-xwidget-webkit-open-url-fn)
 
 ;; For python-mode, anaconda-mode offers a backend for all three lookup
 ;; functions. We can register them like so:
@@ -236,7 +164,7 @@
   :documentation #'anaconda-mode-show-doc)
 
 ;; pretty indent guides
-(setq highlight-indent-guides-method 'bitmap)
+(setq highlight-indent-guides-method 'character)
 (setq highlight-indent-guides-auto-odd-face-perc 23)
 (setq highlight-indent-guides-auto-even-face-perc 23)
 (setq highlight-indent-guides-auto-character-face-perc 23)
@@ -247,10 +175,27 @@
 (format-mode-line "%l")
 
 ;; YOU SHALL NOT PASS COLUMN 100!!
-(setq-default fill-column 100)
+;(setq-default fill-column 100)
 
 ;; Iterate through camelCase words
 (global-subword-mode 1)
+
+;; Mixed font display in org mode
+(add-hook! 'org-mode-hook #'+org-pretty-mode #'mixed-pitch-mode)
+
+(custom-set-faces!
+  '(outline-1 :weight extra-bold :height 1.25)
+  '(outline-2 :weight bold :height 1.15)
+  '(outline-3 :weight bold :height 1.12)
+  '(outline-4 :weight semi-bold :height 1.09)
+  '(outline-5 :weight semi-bold :height 1.06)
+  '(outline-6 :weight semi-bold :height 1.03)
+  '(outline-8 :weight semi-bold)
+  '(outline-9 :weight semi-bold))
+
+(custom-set-faces!
+  '(org-document-title :height 1.2))
+
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
