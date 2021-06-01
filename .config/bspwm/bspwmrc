@@ -41,6 +41,9 @@ bspc rule -a Notion state=floating
 bspc rule -a whatsapp-nativefier-d40211 state=floating 
 bspc rule -a Emacs state=tiled
 bspc rule -a Zathura state=tiled
+bspc rule -a devbook state=floating 
+bspc rule -a Devbook state=floating 
+bspc rule -a obsidian border=on
 
 #xprop | grep WM_CLASS
 

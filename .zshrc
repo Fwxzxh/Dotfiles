@@ -174,6 +174,8 @@ alias xampp='sudo /opt/lampp/lampp '
 alias ip='ip --color=auto'
 alias materias='cd Programing/9no'
 alias icat="kitty +kitten icat"
+alias camara="mpv /dev/video0"
+alias calibreweb="cps -f & xdg-open http://localhost:8083"
 
 # Completion for kitty
 kitty + complete setup zsh | source /dev/stdin
